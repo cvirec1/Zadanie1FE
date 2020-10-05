@@ -12,13 +12,11 @@ html,body {
 }
 
 header {
+    background-color: kros-blue('100');
     overflow: hidden;
 }
 
-main {
-    position: absolute;
-    top: 50%;
-    width: 100%;
+.home,.invoice {
     text-align: center;
 }
 
@@ -40,12 +38,13 @@ button {
     color: kros-green('70');
     border: 2px solid kros-green('70');
     border-radius: 5px;
-    background-color: transparent;
+    background-color: kros-green('50');
     cursor: pointer;
 }
 
 .navbar {
     a {
+      color: kros-red('50');
       margin-right: 10px;
       text-decoration: none;
       font-size: 20px;
