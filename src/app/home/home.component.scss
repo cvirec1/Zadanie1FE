@@ -1,7 +1,7 @@
-@import"~@kros-sk/bootstrap/theming";
-
-.home {
+.welcome {    
     position: absolute;
     top: 50%;
-    left: 45%;
-}
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
