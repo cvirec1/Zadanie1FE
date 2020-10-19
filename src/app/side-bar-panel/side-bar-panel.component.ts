@@ -9,7 +9,6 @@ import { WorkItem } from '../Services/workItem';
 })
 export class SideBarPanelComponent implements OnInit {
   
-  
   get low(): number {
     return this.workService.low;
   }

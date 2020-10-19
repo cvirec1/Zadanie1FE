@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WorkGeneratorService } from '../Services/work-generator.service';
 
 @Component({
@@ -8,10 +8,15 @@ import { WorkGeneratorService } from '../Services/work-generator.service';
 })
 export class WorkContentComponent implements OnInit {
 
+  @ViewChild('nameInput') nameInput: ElementRef;
   constructor(
     private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
   }
 
+  addWorkItem(){
+    this.workService.addWorkItem(this.nameInput.nativeElement.value);
+    this.nameInput.nativeElement.value = '';
+  }
 }

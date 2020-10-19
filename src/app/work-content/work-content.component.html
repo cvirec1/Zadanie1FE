@@ -2,10 +2,13 @@
     <app-side-bar-panel></app-side-bar-panel>
 </div>
 <div class="detail-wrapper">    
-        <input class="form-control"
-              type="text"
-              formControlName="name"
-              placeholder="Pridat úlohu">
+        <input 
+                #nameInput
+                class="form-control"
+                type="text"
+                formControlName="name"
+                placeholder="Pridat úlohu">
         <button type="button"
-                class="btn btn-primary add-btn">Pridaj úlohu</button>
+                class="btn btn-primary add-btn"
+                (click)="addWorkItem()">Pridaj úlohu</button>
 </div>
