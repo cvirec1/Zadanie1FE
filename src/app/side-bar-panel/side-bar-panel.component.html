@@ -10,7 +10,8 @@
         <ul *ngFor= "let workItem of workItems" class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ workItem.workName }}
-                <span class="badge">
+                <span class="badge badge-pill"
+                [ngClass]="(workItem.point < 0.5) ? 'badge-primary' : 'badge-success'">
                   {{getText(workItem.point)}}
                 </span>
             </li>

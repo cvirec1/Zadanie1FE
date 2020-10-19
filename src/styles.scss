@@ -11,16 +11,16 @@
 @include bootstrap-buttons();
 @include bootstrap-transitions();
 @include bootstrap-dropdown();
-// @include bootstrap-button-group();
+@include bootstrap-button-group();
 @include bootstrap-input-group();
 @include bootstrap-custom-forms();
 @include bootstrap-nav();
 @include bootstrap-navbar();
-// @include bootstrap-card();
-// @include bootstrap-breadcrumb();
-// @include bootstrap-pagination();
-// @include bootstrap-badge();
-// @include bootstrap-jumbotron();
+@include bootstrap-card();
+@include bootstrap-breadcrumb();
+@include bootstrap-pagination();
+@include bootstrap-badge();
+@include bootstrap-jumbotron();
 @include bootstrap-alert();
 @include bootstrap-progress();
 @include bootstrap-media();
@@ -30,12 +30,13 @@
 @include bootstrap-modal();
 @include bootstrap-tooltip();
 @include bootstrap-popover();
-// @include bootstrap-carousel();
+@include bootstrap-carousel();
 @include bootstrap-spinners();
 @include bootstrap-utilities();
 // @include bootstrap-print();
 @include kros-icons();
 @include kros-typography();
+@include bootstrap-badge();
 html,body {
     height: 100%;
     min-height: 100%;
