@@ -36,7 +36,7 @@ export class WorkGeneratorService {
     this.setFooter();
   }
 
-  addInvoice(title: string) {
+  addWorkItem(title: string) {
     if(title.length > 0) {
       this.workItems.push({
         id: 0,
