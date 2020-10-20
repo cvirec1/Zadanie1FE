@@ -11,7 +11,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ workItem.workName }}
                 <span class="badge badge-pill"
-                [ngClass]="(workItem.point < 0.5) ? 'badge-primary' : 'badge-success'">
+                [ngClass]="(workItem.point < 0.5) ? 'badge badge-danger' : 'badge-success'">
                   {{getText(workItem.point)}}
                 </span>
             </li>
