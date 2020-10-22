@@ -1,11 +1,18 @@
-<input
-    #nameInput
-    class="form-control"
-    type="text"
-    formControlName="name"
-    placeholder="Pridat úlohu"    
-    (keyup.enter)="addWorkItem()">
-<button 
-    type="button"
-    class="btn btn-primary add-btn"
-    (click)="addWorkItem()">Pridaj úlohu</button>
+    <input
+        #nameInput
+        class="form-control"
+        type="text"
+        formControlName="name"
+        placeholder="Pridat úlohu" 
+        (keyup.enter)="addWorkItem()">
+    <div class="menu">
+        <button 
+        type="button"
+        class="btn btn-primary add-btn"
+        (click)="addWorkItem()">Pridaj úlohu</button>
+    <input
+        #dateInput
+        class="form-datecontrol"
+        type="date"
+        formControlName="date">
+    </div>
