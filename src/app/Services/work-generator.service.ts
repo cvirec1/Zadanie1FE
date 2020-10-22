@@ -11,6 +11,7 @@ export class WorkGeneratorService {
   private high: number;
 
   private filterText = '';
+  private items: WorkItem[];
   private allWorkItem: WorkItem[] = [];
   private filtredWorkitem: WorkItem[] = [];
 
@@ -23,14 +24,17 @@ export class WorkGeneratorService {
   }
 
   get workItems(): WorkItem[]{
-    return this.filterText ? this.filtredWorkitem : this.allWorkItem;
+    return this.items.reverse();
   }
 
-  constructor() { }
+  constructor() {
+    this.generateWorkList();
+   }
 
   filter(text: string) {
     this.filterText = text;
     this.filtredWorkitem = this.allWorkItem.filter(x => x.workName.includes(text));
+    this.items = this.filtredWorkitem;
     this.setFooter();
   }  
 
@@ -54,6 +58,7 @@ export class WorkGeneratorService {
         point: this.numberGenerator(),
         level: this.generatePoint < 0.5 ? 'low' : 'high'
       }as WorkItem);
+      this.setFooter();
     }
   }
 
@@ -74,6 +79,7 @@ export class WorkGeneratorService {
 
 
   private setFooter() {
+    this.items = this.filterText !=='' ? this.filtredWorkitem : this.allWorkItem;
     this.low = this.workItems.filter(x => x.level === 'low').length;
     this.high = this.workItems.filter(x => x.level === 'high').length;
   }

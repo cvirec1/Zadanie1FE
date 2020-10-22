@@ -8,17 +8,9 @@ import { WorkItem } from '../Services/workItem';
 })
 export class WorkListComponent implements OnInit {
   @Input() itemList: WorkItem[];
-
-  kkk: WorkItem[];
-
-
-  get items(): WorkItem[] {
-    return this.kkk;
-  }
   constructor() { }
 
   ngOnInit(): void {
-    this.kkk = this.itemList;
   }
 
 }

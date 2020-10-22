@@ -9,8 +9,6 @@ import { WorkItem } from '../Services/workItem';
 })
 export class SideBarPanelComponent implements OnInit {
 
-  @ Output() workItems: WorkItem[];
-
   get high(): number {
     return this.workService.countHighWorkItem;
   }
@@ -19,24 +17,16 @@ export class SideBarPanelComponent implements OnInit {
     return this.workService.countLowWorkItem;
   }
 
+  get workItems(): WorkItem[] {
+    return this.workService.workItems;
+  }
+
   constructor( private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
-    if( this.workService.workItems.length <= 0){
-      this.workService.generateWorkList();
-      this.workItems = this.workService.workItems;
-    }else{
-      this.workItems = this.workService.workItems;
-    }
   }
 
-  filter(text: string) {
+  filter(text:string): void {
     this.workService.filter(text);
-    this.workItems = this.workService.workItems;
   }
-
-  getText(point: number): string {
-    return point < 0.5 ? 'low' : 'high';
-  }
-
 }

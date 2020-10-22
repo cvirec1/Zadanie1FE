@@ -3,7 +3,8 @@
     class="form-control"
     type="text"
     formControlName="name"
-    placeholder="Pridat úlohu">
+    placeholder="Pridat úlohu"    
+    (keyup.enter)="addWorkItem()">
 <button 
     type="button"
     class="btn btn-primary add-btn"
