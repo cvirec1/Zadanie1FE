@@ -7,22 +7,9 @@
         (input)="filter(search.value)">
     </div>
     <div class="body">
-        <ul *ngFor= "let workItem of workItems" class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ workItem.workName }}
-                <span class="badge badge-pill"
-                [ngClass]="(workItem.point < 0.5) ? 'badge badge-danger' : 'badge-success'">
-                  {{getText(workItem.point)}}
-                </span>
-            </li>
-        </ul>
+        <app-work-list [itemList]="workItems"></app-work-list>
     </div>
     <div class="footer">
-        <h3>
-            Nízka: {{low}}
-          </h3>
-          <h3>
-            Vysoká: {{high}}
-          </h3>
+        <app-item-summarry [low]="low" [high]="high"></app-item-summarry>
     </div>
 </aside>

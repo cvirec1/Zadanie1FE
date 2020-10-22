@@ -1,25 +1,25 @@
 .header, .body, .footer {
     position: absolute;
-    width: 20%;
+    width: 100%;
   }
   
   .header {
     top: 0;
-    height: 70px;
+    height: 10%;
     padding: 1rem;
+    margin-bottom: 1rem;
   }
   
   .body {
-    padding: 1rem;
-    top: 80px;
-    bottom: 10%;
+    bottom: 5%;
     overflow: auto;
     overflow-x: hidden;
+    height: 85%;
   }
   
   .footer {   
-    border-width: 1px;
-    border-color: rgb(194, 180, 180);
+    border-width: 10px;
+    border-color: red;
     bottom: 0;
-    height: 100px;
+    height: 5%;
   }

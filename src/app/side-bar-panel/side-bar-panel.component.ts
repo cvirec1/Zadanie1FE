@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { WorkGeneratorService } from '../Services/work-generator.service';
 import { WorkItem } from '../Services/workItem';
 
@@ -8,20 +8,18 @@ import { WorkItem } from '../Services/workItem';
   styleUrls: ['./side-bar-panel.component.scss']
 })
 export class SideBarPanelComponent implements OnInit {
+
+  @ Output() workItems: WorkItem[];
+
+  get high(): number {
+    return this.workService.countHighWorkItem;
+  }
   
   get low(): number {
-    return this.workService.low;
+    return this.workService.countLowWorkItem;
   }
- 
-  get high(): number {
-     return this.workService.high;
-  }
-    
 
   constructor( private workService: WorkGeneratorService) { }
-
-  filterText = '';
-  workItems: WorkItem[];
 
   ngOnInit(): void {
     if( this.workService.workItems.length <= 0){

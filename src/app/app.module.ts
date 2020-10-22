@@ -7,6 +7,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { WorkContentComponent } from './work-content/work-content.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component';
+import { WorkListComponent } from './work-list/work-list.component';
+import { AddWorkItemComponent } from './add-work-item/add-work-item.component';
+import { ItemSummarryComponent } from './item-summarry/item-summarry.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component
     NavBarComponent,
     WorkContentComponent,
     SearchInputComponent,
-    SideBarPanelComponent
+    SideBarPanelComponent,
+    WorkListComponent,
+    AddWorkItemComponent,
+    ItemSummarryComponent
   ],
   imports: [
     BrowserModule,

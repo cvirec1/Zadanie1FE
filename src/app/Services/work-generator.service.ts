@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { WorkItem } from './workItem';
 
 @Injectable({
@@ -6,12 +6,25 @@ import { WorkItem } from './workItem';
 })
 export class WorkGeneratorService {
 
-  low: number;
-  high: number;
+  private generatePoint: number;
+  private low: number;
+  private high: number;
 
   private filterText = '';
   private allWorkItem: WorkItem[] = [];
   private filtredWorkitem: WorkItem[] = [];
+
+  get countLowWorkItem(): number {
+    return this.low;
+  }
+
+  get countHighWorkItem(): number {
+    return this.high;
+  }
+
+  get workItems(): WorkItem[]{
+    return this.filterText ? this.filtredWorkitem : this.allWorkItem;
+  }
 
   constructor() { }
 
@@ -19,18 +32,15 @@ export class WorkGeneratorService {
     this.filterText = text;
     this.filtredWorkitem = this.allWorkItem.filter(x => x.workName.includes(text));
     this.setFooter();
-  }
-
-  get workItems(): WorkItem[]{
-    return this.filterText ? this.filtredWorkitem : this.allWorkItem;
-  }
+  }  
 
   generateWorkList() {
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 5000; i++) {
       this.allWorkItem.push({
         id : i,
         workName : this.stringGenerator(),
         point : this.numberGenerator(),
+        level: this.generatePoint < 0.5 ? 'low' : 'high'
       } as WorkItem);
     }
     this.setFooter();
@@ -38,10 +48,11 @@ export class WorkGeneratorService {
 
   addWorkItem(title: string) {
     if(title.length > 0) {
-      this.workItems.push({
+      this.allWorkItem.push({
         id: 0,
         workName: title,
-        point: this.numberGenerator()
+        point: this.numberGenerator(),
+        level: this.generatePoint < 0.5 ? 'low' : 'high'
       }as WorkItem);
     }
   }
@@ -57,12 +68,13 @@ export class WorkGeneratorService {
   }
 
   private numberGenerator(): number {
-    return Math.round(Math.random() * 10) / 10;
+    this.generatePoint = Math.round(Math.random() * 10) / 10 
+    return this.generatePoint;
   }
 
 
   private setFooter() {
-    this.low = this.workItems.filter(x => x.point <= 0.5).length;
-    this.high = this.workItems.filter(x => x.point > 0.5).length;
+    this.low = this.workItems.filter(x => x.level === 'low').length;
+    this.high = this.workItems.filter(x => x.level === 'high').length;
   }
 }

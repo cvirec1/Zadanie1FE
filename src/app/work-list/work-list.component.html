@@ -1,0 +1,11 @@
+<ul 
+    class="list-group"
+    *ngFor="let item of items">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ item.workName }}
+        <span class="badge badge-pill"
+        [ngClass]="(item.point > 0.5) ? 'badge badge-danger' : 'badge-success'">
+          {{item.level}}
+        </span>
+    </li>
+</ul>
