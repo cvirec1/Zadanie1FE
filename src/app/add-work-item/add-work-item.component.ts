@@ -9,6 +9,7 @@ import { WorkGeneratorService } from '../Services/work-generator.service';
 })
 export class AddWorkItemComponent implements OnInit {
 
+  @ViewChild('dateInput') dateInput: ElementRef;
   @ViewChild('nameInput') nameInput: ElementRef;
   constructor(
     private workService: WorkGeneratorService
@@ -18,7 +19,7 @@ export class AddWorkItemComponent implements OnInit {
   }
   
   addWorkItem(){
-    this.workService.addWorkItem(this.nameInput.nativeElement.value);
+    this.workService.addWorkItem(this.nameInput.nativeElement.value, this.dateInput.nativeElement.value);
     this.nameInput.nativeElement.value = '';
   }
 }

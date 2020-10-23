@@ -3,4 +3,5 @@ export class WorkItem {
     workName: string;
     point:number;
     level: string;
+    createDate: Date;
 }

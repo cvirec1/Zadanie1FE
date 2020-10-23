@@ -44,19 +44,21 @@ export class WorkGeneratorService {
         id : i,
         workName : this.stringGenerator(),
         point : this.numberGenerator(),
-        level: this.generatePoint < 0.5 ? 'low' : 'high'
+        level: this.generatePoint < 0.5 ? 'low' : 'high',
+        createDate: this.randomDate(new Date(2020, 0, 1), new Date()) 
       } as WorkItem);
     }
     this.setFooter();
   }
 
-  addWorkItem(title: string) {
+  addWorkItem(title: string, creteDate: Date) {
     if(title.length > 0) {
       this.allWorkItem.push({
         id: 0,
         workName: title,
         point: this.numberGenerator(),
-        level: this.generatePoint < 0.5 ? 'low' : 'high'
+        level: this.generatePoint < 0.5 ? 'low' : 'high',
+        createDate: creteDate 
       }as WorkItem);
       this.setFooter();
     }
@@ -83,4 +85,8 @@ export class WorkGeneratorService {
     this.low = this.workItems.filter(x => x.level === 'low').length;
     this.high = this.workItems.filter(x => x.level === 'high').length;
   }
+
+  private randomDate(start: Date, end: Date) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
 }
