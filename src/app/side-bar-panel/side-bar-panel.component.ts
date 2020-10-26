@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { WorkGeneratorService } from '../Services/work-generator.service';
-import { WorkItem } from '../Services/workItem';
+import { WorkGeneratorService } from '../core-modul/work-generator.service';
+import { WorkItem } from '../core-modul/workItem';
 
 @Component({
   selector: 'app-side-bar-panel',

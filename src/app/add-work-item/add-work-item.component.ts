@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { WorkGeneratorService } from '../core-modul/work-generator.service';
 
-import { WorkGeneratorService } from '../Services/work-generator.service';
 
 @Component({
   selector: 'app-add-work-item',

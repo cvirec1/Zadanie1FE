@@ -51,14 +51,14 @@ export class WorkGeneratorService {
     this.setFooter();
   }
 
-  addWorkItem(title: string, creteDate: Date) {
+  addWorkItem(title: string, createDate: Date) {
     if(title.length > 0) {
       this.allWorkItem.push({
         id: 0,
         workName: title,
         point: this.numberGenerator(),
         level: this.generatePoint < 0.5 ? 'low' : 'high',
-        createDate: creteDate 
+        createDate: !createDate ? new Date() : createDate
       }as WorkItem);
       this.setFooter();
     }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WorkItem } from '../Services/workItem';
+import { WorkItem } from '../core-modul/workItem';
 
 @Component({
   selector: 'app-work-list',
