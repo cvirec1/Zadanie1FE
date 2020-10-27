@@ -1,17 +1,23 @@
-.side-bar-wrapper {
-    position: absolute;
-    border-width: 1px;
-    border-color: rgb(194, 180, 180);
-    float: left;
-    width: 20%;
-    height: 90%;
-  }
+>:host {
+  display: block;
+  height: 100%;
+}
 
-  .detail-wrapper {
-    position: absolute;
-    left: 20%;
-    width: 80%;
-    height: 100%;
-  } 
+.side-bar-wrapper {
+  border: 1px solid #c2b4b4;
+  float: left;
+  width: 20%;
+  height: 100%;
+  padding-top: 1rem;
+}
+
+.detail-wrapper {
+  padding-left: 20%;
+  height: 100%;
+}
+
+.container {
+  padding-top: 1rem;
+}
   
   

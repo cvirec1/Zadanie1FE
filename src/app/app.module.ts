@@ -10,6 +10,7 @@ import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component
 import { WorkListComponent } from './work-list/work-list.component';
 import { AddWorkItemComponent } from './add-work-item/add-work-item.component';
 import { ItemSummarryComponent } from './item-summarry/item-summarry.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { ItemSummarryComponent } from './item-summarry/item-summarry.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

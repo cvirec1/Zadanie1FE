@@ -1,7 +1,7 @@
 export class WorkItem {
     id: number;
     workName: string;
-    point:number;
+    point: number;
     level: string;
     createDate: Date;
 }

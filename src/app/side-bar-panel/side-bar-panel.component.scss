@@ -1,25 +1,8 @@
-.header, .body, .footer {
-    position: absolute;
-    width: 100%;
-  }
-  
-  .header {
-    top: 0;
-    height: 10%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .body {
-    bottom: 5%;
-    overflow: auto;
-    overflow-x: hidden;
-    height: 85%;
-  }
-  
-  .footer {   
-    border-width: 10px;
-    border-color: red;
-    bottom: 0;
-    height: 5%;
-  }
+ .header {
+   height: 5%;
+ }
+
+ .body {
+  overflow: scroll;
+  height: 80%;
+ }

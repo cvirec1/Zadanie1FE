@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 
 
@@ -9,17 +10,24 @@ import { WorkGeneratorService } from '../core-modul/work-generator.service';
 })
 export class AddWorkItemComponent implements OnInit {
 
-  @ViewChild('dateInput') dateInput: ElementRef;
-  @ViewChild('nameInput') nameInput: ElementRef;
+  form: FormGroup;
+
   constructor(
+    private fb: FormBuilder,
     private workService: WorkGeneratorService
-  ) { }
+  ) {
+    this.form = fb.group({
+      name: '',
+      date: ''
+    });
+  }
 
   ngOnInit(): void {
+    this.form.controls.name.valueChanges.subscribe(val => console.log(val));
   }
-  
-  addWorkItem(){
-    this.workService.addWorkItem(this.nameInput.nativeElement.value, this.dateInput.nativeElement.value);
-    this.nameInput.nativeElement.value = '';
+
+  addWorkItem(): void{
+    this.workService.addWorkItem(this.form.value);
+    this.form.reset();
   }
 }

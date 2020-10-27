@@ -12,7 +12,7 @@ export class SideBarPanelComponent implements OnInit {
   get high(): number {
     return this.workService.countHighWorkItem;
   }
-  
+
   get low(): number {
     return this.workService.countLowWorkItem;
   }
@@ -26,7 +26,7 @@ export class SideBarPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filter(text:string): void {
+  filter(text: string): void {
     this.workService.filter(text);
   }
 }

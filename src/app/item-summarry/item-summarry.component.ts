@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ItemSummarryComponent implements OnInit {
   @Input() low: number;
   @Input() high: number;
-  
+
   constructor() { }
 
   ngOnInit(): void {
