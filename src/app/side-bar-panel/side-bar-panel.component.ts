@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 import { WorkItem } from '../core-modul/workItem';
 

@@ -2,20 +2,23 @@
     <a class="nav-link" href="#">Kros</a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link"
-          routerLink="/home"
-          routerLinkActive="active">Domov</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"
-          routerLink="/content"
-          routerLinkActive="active">Fakturácia</a>
-        </li>
-      </ul>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link"
+                   routerLink="/home"
+                  routerLinkActive="active">Domov</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   routerLink="/content"
+                   routerLinkActive="active">Fakturácia</a>
+            </li>
+        </ul>
+
       <form class="form-inline my-2 my-lg-0">
           <app-search-input [showButton]="true"></app-search-input>        
       </form>
+      
     </div>
-  </nav>
+</nav>

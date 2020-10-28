@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SearchInputComponent implements OnInit {
   @Input() showButton: boolean;
-  
+
   constructor() { }
 
   ngOnInit(): void {

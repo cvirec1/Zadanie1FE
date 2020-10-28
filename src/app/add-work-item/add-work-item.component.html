@@ -1,37 +1,23 @@
-    <form [formGroup]="form"
-          (ngSubmit)="addWorkItem()">
-        <div class="form-group">
-            <input class="form-control"
-                   type="text"
-                   formControlName="name"
-                   placeholder="Pridať úlohu">
-        </div>
-        <div class="form-group">
-             <input class="form-control"
-                    type="date"
-                    formControlName="date">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary add-btn"
-            type="submit">Pridaj úlohu</button>
-        </div>
+<form [formGroup]="form"
+      (ngSubmit)="addWorkItem()">
+
+    <div class="form-group">
+        <input class="form-control"
+               type="text"
+               formControlName="name"
+               placeholder="Pridať úlohu">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control"
+               type="date"
+               formControlName="date">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary add-btn"
+                type="submit">Pridaj úlohu</button>
+    </div>
         
-    </form>
-    <!-- <input
-        #nameInput
-        class="form-control"
-        type="text"
-        formControlName="name"
-        placeholder="Pridat úlohu" 
-        (keyup.enter)="addWorkItem()">
-    <div class="menu">
-        <button 
-        type="button"
-        class="btn btn-primary add-btn"
-        (click)="addWorkItem()">Pridaj úlohu</button>
-    <input
-        #dateInput
-        class="form-datecontrol"
-        type="date"
-        formControlName="date">
-    </div> -->
+ </form>
+    
