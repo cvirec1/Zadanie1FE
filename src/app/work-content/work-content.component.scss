@@ -4,13 +4,19 @@
 }
 
 .side-bar-wrapper {
-  border: 1px solid #c2b4b4;
-  float: left;
   width: 20%;
   height: 100%;
+  overflow: auto;
+  border-right: 1px solid #cccccc;
+  float: left;
 }
 
 .detail-wrapper {
-  padding: 1rem 1rem 0 21%;
   height: 100%;
+  overflow: auto;
+}
+
+.centered {
+  padding: 1rem 1rem 1rem 1rem;
+  text-align: center;
 }

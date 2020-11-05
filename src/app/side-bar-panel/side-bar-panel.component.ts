@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 import { WorkItem } from '../core-modul/workItem';
 
 @Component({
   selector: 'app-side-bar-panel',
   templateUrl: './side-bar-panel.component.html',
-  styleUrls: ['./side-bar-panel.component.scss']
+  styleUrls: ['./side-bar-panel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarPanelComponent implements OnInit {
 
@@ -24,9 +25,5 @@ export class SideBarPanelComponent implements OnInit {
   constructor( private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
-  }
-
-  filter(text: string): void {
-    this.workService.filter(text);
   }
 }

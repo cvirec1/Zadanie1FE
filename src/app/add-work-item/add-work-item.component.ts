@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 
@@ -6,7 +6,8 @@ import { WorkGeneratorService } from '../core-modul/work-generator.service';
 @Component({
   selector: 'app-add-work-item',
   templateUrl: './add-work-item.component.html',
-  styleUrls: ['./add-work-item.component.scss']
+  styleUrls: ['./add-work-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddWorkItemComponent implements OnInit {
 

@@ -1,19 +1,8 @@
-<div class="side-bar">
-    
-    <div class="header">
-        <input #search
-        class="form-control"
-        type="search"
-        placeholder="Hladat"
-        (input)="filter(search.value)">
-    </div>
+<aside>
 
-    <div class="body">
-        <app-work-list [itemList]="workItems"></app-work-list>
-    </div>
+    <app-side-bar-search class="header"></app-side-bar-search>
+    <app-work-list class="body" [itemList]="workItems"></app-work-list>
+    <app-item-summarry class="footer" [low]="low" [high]="high"></app-item-summarry>
 
-    <div class="footer">
-        <app-item-summarry [low]="low" [high]="high"></app-item-summarry>
-    </div>
-</div>
+</aside>
 
