@@ -12,6 +12,9 @@ import { AddWorkItemComponent } from './add-work-item/add-work-item.component';
 import { ItemSummarryComponent } from './item-summarry/item-summarry.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideBarSearchComponent } from './side-bar-search/side-bar-search.component';
+import { WorkItemDetailComponent } from './work-item-detail/work-item-detail.component';
+import { ItemLevelPipePipe } from './item-level-pipe.pipe';
+import { ItemDatePipePipe } from './item-date-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { SideBarSearchComponent } from './side-bar-search/side-bar-search.compon
     WorkListComponent,
     AddWorkItemComponent,
     ItemSummarryComponent,
-    SideBarSearchComponent
+    SideBarSearchComponent,
+    WorkItemDetailComponent,
+    ItemLevelPipePipe,
+    ItemDatePipePipe
   ],
   imports: [
     BrowserModule,

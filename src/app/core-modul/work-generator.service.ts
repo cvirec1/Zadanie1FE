@@ -9,12 +9,12 @@ export class WorkGeneratorService {
   private generatePoint: number;
   private low: number;
   private high: number;
+  private selectedWorkItem: WorkItem;
 
   private filterText = '';
   private items: WorkItem[];
   private allWorkItem: WorkItem[] = [];
   private filtredWorkitem: WorkItem[] = [];
-
   get countLowWorkItem(): number {
     return this.low;
   }
@@ -24,7 +24,11 @@ export class WorkGeneratorService {
   }
 
   get workItems(): WorkItem[]{
-    return this.items.reverse();
+    return this.items;
+  }
+
+  get itemDetail(): WorkItem {
+    return this.selectedWorkItem;
   }
 
   constructor() {
@@ -54,7 +58,7 @@ export class WorkGeneratorService {
   addWorkItem(form: {name: string, date: string}): void {
     if (form.name.length > 0) {
       this.allWorkItem.push({
-        id: 0,
+        id: this.items.length ,
         workName: form.name,
         point: this.numberGenerator(),
         level: this.generatePoint < 0.5 ? 'low' : 'high',
@@ -62,6 +66,10 @@ export class WorkGeneratorService {
       }as WorkItem);
       this.setFooter();
     }
+  }
+
+  setSelectedWorkItem(item: WorkItem): void {
+    this.selectedWorkItem = item;
   }
 
   private stringGenerator(): string {
@@ -81,7 +89,7 @@ export class WorkGeneratorService {
 
 
   private setFooter(): void {
-    this.items = this.filterText !== '' ? this.filtredWorkitem : this.allWorkItem;
+    this.items = this.filterText !== '' ? this.filtredWorkitem.sort((a, b) =>  b.id - a.id) : this.allWorkItem.sort((a, b) =>  b.id - a.id);
     this.low = this.workItems.filter(x => x.level === 'low').length;
     this.high = this.workItems.filter(x => x.level === 'high').length;
   }

@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
+import { WorkGeneratorService } from '../core-modul/work-generator.service';
+
 import { WorkItem } from '../core-modul/workItem';
 
 @Component({
@@ -10,9 +12,12 @@ import { WorkItem } from '../core-modul/workItem';
 })
 export class WorkListComponent implements OnInit {
   @Input() itemList: WorkItem[];
-  constructor() { }
+  constructor( private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
   }
 
+  showItem(item: WorkItem): void {
+    this.workService.setSelectedWorkItem(item);
+  }
 }
