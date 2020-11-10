@@ -1,7 +1,7 @@
 <ul class="list-group"
     *ngFor="let item of itemList">
-
-    <li class="list-group-item d-flex justify-content-between align-items-center"
+    <a [routerLink]="['detail',item.id]">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
         (click)="showItem(item)">
         <span class="workName">{{ item.workName }}</span>
         
@@ -11,5 +11,7 @@
         </span>
               
     </li>
+    </a>
+    
 
 </ul>

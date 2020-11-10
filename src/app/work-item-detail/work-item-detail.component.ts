@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 import { WorkItem } from '../core-modul/workItem';
@@ -8,7 +8,7 @@ import { WorkItem } from '../core-modul/workItem';
   templateUrl: './work-item-detail.component.html',
   styleUrls: ['./work-item-detail.component.scss']
 })
-export class WorkItemDetailComponent implements OnInit {
+export class WorkItemDetailComponent implements OnInit, OnDestroy {
 
   get item(): WorkItem {
     return this.workService.itemDetail;
@@ -21,6 +21,10 @@ export class WorkItemDetailComponent implements OnInit {
   constructor(private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
   }
 
 }
