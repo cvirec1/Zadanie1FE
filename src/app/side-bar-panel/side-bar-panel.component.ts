@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { WorkGeneratorService } from '../core-modul/work-generator.service';
 import { WorkItem } from '../core-modul/workItem';
 
@@ -10,6 +11,8 @@ import { WorkItem } from '../core-modul/workItem';
 })
 export class SideBarPanelComponent implements OnInit {
 
+  filteredItems: WorkItem[] = [];
+
   get high(): number {
     return this.workService.countHighWorkItem;
   }
@@ -18,12 +21,12 @@ export class SideBarPanelComponent implements OnInit {
     return this.workService.countLowWorkItem;
   }
 
-  get workItems(): WorkItem[] {
-    return this.workService.workItems;
-  }
-
   constructor( private workService: WorkGeneratorService) { }
 
   ngOnInit(): void {
+    this.workService.items$.subscribe(_ => {
+      this.filteredItems = _;
+    });
   }
+
 }

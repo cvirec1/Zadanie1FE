@@ -28,7 +28,7 @@ export class AddWorkItemComponent implements OnInit {
   }
 
   addWorkItem(): void{
-    this.workService.addWorkItem(this.form.value);
+    this.workService.addItem(this.form.value);
     this.form.reset();
   }
 }
