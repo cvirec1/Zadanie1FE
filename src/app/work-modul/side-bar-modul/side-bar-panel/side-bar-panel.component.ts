@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
+import { WorkItem } from 'src/app/core-modul/workItem';
 
-import { WorkGeneratorService } from '../core-modul/work-generator.service';
-import { WorkItem } from '../core-modul/workItem';
 
 @Component({
   selector: 'app-side-bar-panel',

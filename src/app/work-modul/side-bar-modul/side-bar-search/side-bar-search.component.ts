@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { WorkGeneratorService } from '../core-modul/work-generator.service';
+import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
 
 @Component({
   selector: 'app-side-bar-search',

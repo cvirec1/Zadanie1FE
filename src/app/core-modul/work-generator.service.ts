@@ -1,5 +1,5 @@
 import { Injectable, Output } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { WorkItem } from './workItem';
 
 @Injectable({
@@ -49,6 +49,10 @@ export class WorkGeneratorService {
     this.allWorkItem = [newItem, ...this.allWorkItem];
     this.items = this.allWorkItem;
     this.itemsSubject.next(this.items);
+  }
+
+  getItem(id: number): Observable<WorkItem> {
+    return of(this.items.find(_ => _.id === id));
   }
 
   filter(text: string): void {

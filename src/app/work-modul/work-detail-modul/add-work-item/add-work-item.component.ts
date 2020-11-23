@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { WorkGeneratorService } from '../core-modul/work-generator.service';
+import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
 
 
 @Component({
