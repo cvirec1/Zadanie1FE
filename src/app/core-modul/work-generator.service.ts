@@ -13,7 +13,6 @@ export class WorkGeneratorService {
   private generatePoint: number;
   private low: number;
   private high: number;
-  private selectedWorkItem: WorkItem;
 
   private items: WorkItem[];
   private allWorkItem: WorkItem[] = [];
@@ -24,10 +23,6 @@ export class WorkGeneratorService {
 
   get countHighWorkItem(): number {
     return this.high;
-  }
-
-  get itemDetail(): WorkItem {
-    return this.selectedWorkItem;
   }
 
   constructor() {
@@ -73,10 +68,6 @@ export class WorkGeneratorService {
     }
     this.items = this.allWorkItem;
     this.setFooter();
-  }
-
-  setSelectedWorkItem(item: WorkItem): void {
-    this.selectedWorkItem = item;
   }
 
   private stringGenerator(): string {

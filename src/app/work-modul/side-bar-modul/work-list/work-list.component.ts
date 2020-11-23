@@ -16,7 +16,4 @@ export class WorkListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showItem(item: WorkItem): void {
-    this.workService.setSelectedWorkItem(item);
-  }
 }
