@@ -11,7 +11,8 @@ import { WorkItem } from 'src/app/core-modul/workItem';
 })
 export class WorkListComponent implements OnInit {
   @Input() itemList: WorkItem[];
-  constructor( private workService: WorkGeneratorService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }

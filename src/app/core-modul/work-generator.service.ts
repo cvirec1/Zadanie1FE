@@ -30,8 +30,7 @@ export class WorkGeneratorService {
 
     this.itemsSubject = new BehaviorSubject(this.items);
     this.items$ = this.itemsSubject.asObservable();
-   }
-
+  }
 
   addItem(form: {name: string, date: string}): void{
     const newItem = {
@@ -84,7 +83,6 @@ export class WorkGeneratorService {
     this.generatePoint = (Math.round(Math.random() * 10) / 10);
     return this.generatePoint;
   }
-
 
   private setFooter(): void {
     this.low = this.items.filter(x => x.level === 'low').length;
