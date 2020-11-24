@@ -7,14 +7,14 @@ import { WorkContentComponent } from './work-modul/work-content/work-content.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemLevelPipePipe } from './item-level-pipe.pipe';
 import { ItemDatePipePipe } from './item-date-pipe.pipe';
-import { SideBarPanelComponent } from './work-modul/side-bar-modul/side-bar-panel/side-bar-panel.component';
-import { AddWorkItemComponent } from './work-modul/work-detail-modul/add-work-item/add-work-item.component';
-import { WorkListComponent } from './work-modul/side-bar-modul/side-bar-work-list/work-list.component';
-import { ItemSummarryComponent } from './work-modul/side-bar-modul/side-bar-summary/item-summarry.component';
-import { SideBarSearchComponent } from './work-modul/side-bar-modul/side-bar-search/side-bar-search.component';
-import { WorkItemDetailComponent } from './work-modul/work-detail-modul/work-item-detail/work-item-detail.component';
 import { NavBarComponent } from './nav-bar-modul/nav-bar/nav-bar.component';
 import { SearchInputComponent } from './nav-bar-modul/search-input/search-input.component';
+import { SideBarPanelComponent } from './work-modul/work-content/side-bar-modul/side-bar-panel/side-bar-panel.component';
+import { WorkListComponent } from './work-modul/work-content/side-bar-modul/side-bar-work-list/work-list.component';
+import { SideBarSearchComponent } from './work-modul/work-content/side-bar-modul/side-bar-search/side-bar-search.component';
+import { ItemSummarryComponent } from './work-modul/work-content/side-bar-modul/side-bar-summary/item-summarry.component';
+import { AddWorkItemComponent } from './work-modul/work-content/work-detail-modul/add-work-item/add-work-item.component';
+import { WorkItemDetailComponent } from './work-modul/work-content/work-detail-modul/work-item-detail/work-item-detail.component';
 
 @NgModule({
   declarations: [

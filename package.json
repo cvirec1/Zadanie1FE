@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~10.1.2",
     "@angular/router": "~10.1.2",
     "@kros-sk/bootstrap": "0.0.8",
+    "@ngrx/store": "^10.0.1",
     "rxjs": "~6.6.0",
     "subsink": "^1.0.1",
     "tslib": "^2.0.0",
