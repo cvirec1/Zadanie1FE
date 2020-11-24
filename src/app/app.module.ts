@@ -15,7 +15,10 @@ import { SideBarSearchComponent } from './work-modul/work-content/side-bar-modul
 import { ItemSummarryComponent } from './work-modul/work-content/side-bar-modul/side-bar-summary/item-summarry.component';
 import { AddWorkItemComponent } from './work-modul/work-content/work-detail-modul/add-work-item/add-work-item.component';
 import { WorkItemDetailComponent } from './work-modul/work-content/work-detail-modul/work-item-detail/work-item-detail.component';
+import { StoreModule } from '@ngrx/store';
 
+import { items } from './redux/reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,11 @@ import { WorkItemDetailComponent } from './work-modul/work-content/work-detail-m
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ items }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+  }),
   ],
   providers: [],
   bootstrap: [AppComponent]

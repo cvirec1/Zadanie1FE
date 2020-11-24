@@ -1,5 +1,7 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { items } from '../redux/reducer';
 import { WorkItem } from './workItem';
 
 @Injectable({
@@ -13,7 +15,6 @@ export class WorkGeneratorService {
   private generatePoint: number;
   private low: number;
   private high: number;
-
   private items: WorkItem[];
   private allWorkItem: WorkItem[] = [];
 
@@ -25,7 +26,11 @@ export class WorkGeneratorService {
     return this.high;
   }
 
-  constructor() {
+  constructor(private store: Store<any>) {
+    // tslint:disable-next-line:no-shadowed-variable
+    store.select('items').subscribe( items => {
+      this.items$ = items;
+    });
     this.generateWorkList(5000);
 
     this.itemsSubject = new BehaviorSubject(this.items);
