@@ -21,7 +21,7 @@ export class SideBarPanelComponent implements OnInit {
     return this.workService.countLowWorkItem;
   }
 
-  constructor (
+  constructor(
     private workService: WorkGeneratorService,
     private cdr: ChangeDetectorRef) { }
 

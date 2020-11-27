@@ -1,3 +1,10 @@
 .add-btn {
     float: right;
 }
+form:invalid{
+    color: red;
+}
+input:invalid {
+    border-color: red;
+    color: red;
+}
