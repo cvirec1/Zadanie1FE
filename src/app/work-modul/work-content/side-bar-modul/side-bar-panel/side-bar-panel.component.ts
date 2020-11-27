@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
 import { WorkItem } from 'src/app/core-modul/workItem';
 
@@ -10,7 +12,7 @@ import { WorkItem } from 'src/app/core-modul/workItem';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarPanelComponent implements OnInit {
-
+  items$: Observable<WorkItem[]>;
   filteredItems: WorkItem[] = [];
 
   get high(): number {
@@ -21,7 +23,9 @@ export class SideBarPanelComponent implements OnInit {
     return this.workService.countLowWorkItem;
   }
 
-  constructor( private workService: WorkGeneratorService) { }
+  constructor( private workService: WorkGeneratorService, private store: Store<any>) {
+      this.items$ = store.select('workItems');
+   }
 
   ngOnInit(): void {
     this.workService.items$.subscribe(_ => {

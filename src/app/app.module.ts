@@ -17,7 +17,7 @@ import { AddWorkItemComponent } from './work-modul/work-content/work-detail-modu
 import { WorkItemDetailComponent } from './work-modul/work-content/work-detail-modul/work-item-detail/work-item-detail.component';
 import { StoreModule } from '@ngrx/store';
 
-import { items } from './redux/reducer';
+import { todos } from './redux/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ items }),
+    StoreModule.forRoot({ workItems: todos }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
   }),

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { items } from '../redux/reducer';
+import { todos } from '../redux/reducer';
 import { WorkItem } from './workItem';
 
 @Injectable({
@@ -26,16 +26,14 @@ export class WorkGeneratorService {
     return this.high;
   }
 
-  constructor(private store: Store<any>) {
-    // tslint:disable-next-line:no-shadowed-variable
-    store.select('items').subscribe( items => {
-      this.items$ = items;
-    });
+  constructor() {
+
     this.generateWorkList(5000);
 
     this.itemsSubject = new BehaviorSubject(this.items);
     this.items$ = this.itemsSubject.asObservable();
   }
+
 
   addItem(form: {name: string, date: string}): void{
     const newItem = {
@@ -84,7 +82,7 @@ export class WorkGeneratorService {
     return randomCodes;
   }
 
-  private numberGenerator(): number {
+  numberGenerator(): number {
     this.generatePoint = (Math.round(Math.random() * 10) / 10);
     return this.generatePoint;
   }

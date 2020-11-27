@@ -12,6 +12,9 @@ import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service'
 export class AddWorkItemComponent implements OnInit {
 
   form: FormGroup;
+  store: any;
+  items: any;
+  generatePoint: number;
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +28,19 @@ export class AddWorkItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.controls.name.valueChanges.subscribe(val => console.log(val));
+  }
+
+  addItemStore(form: {name: string, date: string}): void {
+    this.store.dispatch({
+      type: 'ADD_TODO',
+      payload: {
+        id: this.items.length,
+        workName : form.name,
+        point : this.workService.numberGenerator(),
+        level: this.generatePoint < 0.5 ? 'low' : 'high',
+        createDate: !form.date ? new Date() : form.date
+      }
+    });
   }
 
   addWorkItem(): void{
