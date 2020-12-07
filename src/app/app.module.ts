@@ -16,6 +16,7 @@ import { ItemSummarryComponent } from './work-modul/work-content/side-bar-modul/
 import { AddWorkItemComponent } from './work-modul/work-content/work-detail-modul/add-work-item/add-work-item.component';
 import { WorkItemDetailComponent } from './work-modul/work-content/work-detail-modul/work-item-detail/work-item-detail.component';
 import { StoreModule } from '@ngrx/store';
+import { ValidatorComponent } from './validator/validator.component';
 
 import { todos } from './redux/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -32,7 +33,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     SideBarSearchComponent,
     WorkItemDetailComponent,
     ItemLevelPipePipe,
-    ItemDatePipePipe
+    ItemDatePipePipe,
+    ValidatorComponent
   ],
   imports: [
     BrowserModule,

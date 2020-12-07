@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
 
 
@@ -21,7 +21,7 @@ export class AddWorkItemComponent implements OnInit {
     private workService: WorkGeneratorService
   ) {
     this.form = fb.group({
-      name: '',
+      name: ['', [Validators.required, Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]],
       date: ''
     });
   }
@@ -44,7 +44,9 @@ export class AddWorkItemComponent implements OnInit {
   }
 
   addWorkItem(): void{
-    this.workService.addItem(this.form.value);
-    this.form.reset();
+    if (this.form.valid) {
+      this.workService.addItem(this.form.value);
+      this.form.reset();
+    }
   }
 }

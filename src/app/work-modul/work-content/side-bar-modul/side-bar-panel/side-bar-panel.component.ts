@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
 import { WorkItem } from 'src/app/core-modul/workItem';
 
@@ -23,13 +23,14 @@ export class SideBarPanelComponent implements OnInit {
     return this.workService.countLowWorkItem;
   }
 
-  constructor( private workService: WorkGeneratorService, private store: Store<any>) {
-      this.items$ = store.select('workItems');
-   }
+  constructor(
+    private workService: WorkGeneratorService,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.workService.items$.subscribe(_ => {
       this.filteredItems = _;
+      this.cdr.detectChanges();
     });
   }
 
