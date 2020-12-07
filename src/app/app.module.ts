@@ -15,6 +15,7 @@ import { SideBarSearchComponent } from './work-modul/side-bar-modul/side-bar-sea
 import { WorkItemDetailComponent } from './work-modul/work-detail-modul/work-item-detail/work-item-detail.component';
 import { NavBarComponent } from './nav-bar-modul/nav-bar/nav-bar.component';
 import { SearchInputComponent } from './nav-bar-modul/search-input/search-input.component';
+import { ValidatorComponent } from './validator/validator.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchInputComponent } from './nav-bar-modul/search-input/search-input.
     SideBarSearchComponent,
     WorkItemDetailComponent,
     ItemLevelPipePipe,
-    ItemDatePipePipe
+    ItemDatePipePipe,
+    ValidatorComponent
   ],
   imports: [
     BrowserModule,
