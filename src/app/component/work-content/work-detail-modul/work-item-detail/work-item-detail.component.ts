@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap} from 'rxjs/operators';
 
@@ -9,7 +9,8 @@ import { WorkItem } from 'src/app/core-modul/workItem';
 @Component({
   selector: 'app-work-item-detail',
   templateUrl: './work-item-detail.component.html',
-  styleUrls: ['./work-item-detail.component.scss']
+  styleUrls: ['./work-item-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkItemDetailComponent implements OnInit {
 
@@ -17,13 +18,17 @@ export class WorkItemDetailComponent implements OnInit {
 
   constructor(
     private workService: WorkGeneratorService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
         switchMap(async (params) => this.workService.getItem(+params.id))
-      ).subscribe(item => this.item = item);
+      ).subscribe(item => {
+        this.item = item;
+        this.cdr.detectChanges();
+      });
   }
 
 }

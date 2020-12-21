@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidatorComponent } from './validator/validator.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ReduxModule } from './redux/redux.module';
@@ -14,8 +13,7 @@ import { ComponentModule } from './component/component.module';
 import { WorkItemModule } from './component/work-content/work-item.module';
 @NgModule({
   declarations: [
-    AppComponent,
-    ValidatorComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
