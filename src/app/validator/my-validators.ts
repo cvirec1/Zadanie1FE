@@ -6,7 +6,7 @@ import { pipe, timer } from 'rxjs';
 export function notStringValidator(value: string): AsyncValidatorFn {
     return (c: AbstractControl) => {
         return timer(3000).pipe(map(t => value === c.value ? { notstring: value } : null));
- }
+ };
 }
 
 export class MyValidators {

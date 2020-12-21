@@ -1,5 +1,7 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { WorkItem } from '../core-modul/workItem';
 
-export const addItem = createAction('[Work Page] Add item ');
-export const removeItem = createAction('[Work Page] Remove item ');
-export const editItem = createAction('[Work Page] Edit item ');
+export const createWorkItemsAction =  createAction(
+    '[WorkItems] - create work items',
+    props<WorkItem>()
+);
