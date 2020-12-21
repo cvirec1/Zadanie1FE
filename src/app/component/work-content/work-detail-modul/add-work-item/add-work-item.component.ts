@@ -30,22 +30,9 @@ export class AddWorkItemComponent implements OnInit {
     this.form.controls.name.valueChanges.subscribe(val => console.log(val));
   }
 
-  addItemStore(form: {name: string, date: string}): void {
-    this.store.dispatch({
-      type: 'ADD_TODO',
-      payload: {
-        id: this.items.length,
-        workName : form.name,
-        point : this.workService.numberGenerator(),
-        level: this.generatePoint < 0.5 ? 'low' : 'high',
-        createDate: !form.date ? new Date() : form.date
-      }
-    });
-  }
-
   addWorkItem(): void{
     if (this.form.valid) {
-      this.workService.addItem(this.form.value);
+      this.workService.createWorkItem(this.form.value);
       this.form.reset();
     }
   }

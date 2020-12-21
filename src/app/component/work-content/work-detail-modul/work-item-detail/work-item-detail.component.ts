@@ -22,7 +22,7 @@ export class WorkItemDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
-        switchMap(params => this.workService.getItem(+params.id))
+        switchMap(async (params) => this.workService.getItem(+params.id))
       ).subscribe(item => this.item = item);
   }
 

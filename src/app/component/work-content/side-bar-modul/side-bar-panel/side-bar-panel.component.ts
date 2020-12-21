@@ -12,7 +12,7 @@ import { WorkItem } from 'src/app/core-modul/workItem';
 })
 export class SideBarPanelComponent implements OnInit {
   items$: Observable<WorkItem[]>;
-  allItems: WorkItem[] = [];
+  items: WorkItem[];
 
   get high(): number {
     return this.workService.countHighWorkItem;
@@ -28,7 +28,7 @@ export class SideBarPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.workService.items$.subscribe(_ => {
-      this.allItems = _;
+      this.items = _;
       this.cdr.detectChanges();
     });
   }

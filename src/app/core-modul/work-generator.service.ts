@@ -13,7 +13,7 @@ export class WorkGeneratorService {
 
   items$: Observable<WorkItem[]>;
   private item: WorkItem;
-
+  private workItemCounter = 1;
   private itemsSubject: BehaviorSubject<WorkItem[]>;
   private generatePoint: number;
   private low: number;
@@ -53,7 +53,7 @@ export class WorkGeneratorService {
 
   private generateWorkItem(itemId: number): WorkItem {
     return {
-      id : itemId,
+      id : this.workItemCounter++,
       workName : this.stringGenerator(),
       point : this.numberGenerator(),
       level: this.generatePoint < 0.5 ? 'low' : 'high',
@@ -70,7 +70,16 @@ export class WorkGeneratorService {
     }
     return randomCodes;
   }
-
+  createWorkItem(form: {name: string, date: string}): void {
+    const newItem = {
+      id: this.workItemCounter++,
+      workName : form.name,
+      point : this.numberGenerator(),
+      level: this.generatePoint < 0.5 ? 'low' : 'high',
+      createDate: !form.date ? new Date() : form.date
+    }as WorkItem;
+    this.store.dispatch(WorkItemActions.createWorkItemsAction(newItem));
+  }
   numberGenerator(): number {
     this.generatePoint = (Math.round(Math.random() * 10) / 10);
     return this.generatePoint;
@@ -85,9 +94,10 @@ export class WorkGeneratorService {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
+
   addItem(form: {name: string, date: string}): void{
     const newItem = {
-      id: this.items.length,
+      id: this.workItemCounter++,
       workName : form.name,
       point : this.numberGenerator(),
       level: this.generatePoint < 0.5 ? 'low' : 'high',
@@ -98,8 +108,10 @@ export class WorkGeneratorService {
     this.itemsSubject.next(this.items);
   }
 
-  getItem(id: number): Observable<WorkItem> {
-    return of(this.items.find(_ => _.id === id));
+  getItem(id: number): WorkItem {
+    let item: WorkItem;
+    this.workItemSelector.getItem$(id).subscribe(_ => {item = _; });
+    return item;
   }
 
   filter(text: string): void {
