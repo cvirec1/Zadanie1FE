@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { WorkItem } from './workItem';
-import { WorkItemLevel } from './workItemLevelCount';
+import { WorkItem } from '../workItem';
+import { WorkItemLevel } from '../workItemLevelCount';
 
 @Pipe({
   name: 'itemLevelCount'
