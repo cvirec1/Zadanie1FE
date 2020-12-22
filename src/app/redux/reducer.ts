@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { WorkItem } from '../core-modul/workItem';
+import { WorkItem } from '../shared/workItem';
 import { initializeState, WorkItemsState } from './work-item-state';
 import * as WorkItemActions from './work-item-actions';
 

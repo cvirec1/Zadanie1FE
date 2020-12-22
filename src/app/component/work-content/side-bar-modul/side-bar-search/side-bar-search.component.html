@@ -1,5 +1,12 @@
-<input #search
-        class="form-control"
-        type="search"
-        placeholder="Hladat"
-        (input)="filter(search.value)">
+<div class="sidebar-search">
+        <form class="form-group">
+                <input
+                        id="priorityFilter"
+                        class="form-control mr-xl-2"
+                        [formControl]="priorityFilter"
+                        type="search"
+                        placeholder="Filtrovať úlohy"
+                        aria-label="Search"
+                >
+        </form>
+</div>

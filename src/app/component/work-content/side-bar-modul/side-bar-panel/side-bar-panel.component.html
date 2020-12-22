@@ -1,8 +1,8 @@
 <aside>
 
-    <app-side-bar-search class="header"></app-side-bar-search>
+    <app-side-bar-search class="header" (filterItems)="onFilter($event)"></app-side-bar-search>
     <app-work-list class="body" [itemList]="items"></app-work-list>
-    <app-item-summarry class="footer" [low]="low" [high]="high"></app-item-summarry>
+    <app-item-summarry class="footer" [summaryItems]="items | itemLevelCount"></app-item-summarry>
 
 </aside>
 

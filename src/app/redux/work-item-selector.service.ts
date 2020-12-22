@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createSelector, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { WorkItem } from '../core-modul/workItem';
+import { WorkItem } from '../shared/workItem';
 import { WorkItemsState } from './work-item-state';
 
 export const workItems = (state: {items: WorkItemsState}) => state.items.items;

@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
-import { WorkItem } from 'src/app/core-modul/workItem';
+import { WorkItem } from 'src/app/shared/workItem';
+import { SubSink} from 'subsink';
 
 
 @Component({
@@ -11,15 +11,21 @@ import { WorkItem } from 'src/app/core-modul/workItem';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarPanelComponent implements OnInit {
-  items$: Observable<WorkItem[]>;
+
   items: WorkItem[];
 
+  private allItems: WorkItem[];
+  private actualText = '';
+
+  private lowLevel: number;
+  private highLevel: number;
+
   get high(): number {
-    return this.workService.countHighWorkItem;
+    return this.highLevel;
   }
 
   get low(): number {
-    return this.workService.countLowWorkItem;
+    return this.lowLevel;
   }
 
   constructor(
@@ -28,9 +34,19 @@ export class SideBarPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.workService.items$.subscribe(_ => {
-      this.items = _;
+      this.allItems = _;
+      this.onFilter(this.actualText);
       this.cdr.detectChanges();
     });
+  }
+
+
+  onFilter(text: string): void {
+    this.actualText = text;
+
+    this.actualText === '' ?
+      this.items = this.allItems :
+      this.items = this.allItems.filter(_ => _.workName.includes(text));
   }
 
 }

@@ -16,19 +16,19 @@ import { WorkItemModule } from './component/work-content/work-item.module';
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     ReduxModule,
-    ComponentModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 25
-  }),
     SharedModule,
     CoreModule,
     ComponentModule,
     WorkItemModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+  }),
+
   ],
   exports: [],
   bootstrap: [AppComponent]

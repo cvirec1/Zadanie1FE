@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { WorkItemsState } from '../redux/work-item-state';
 import * as WorkItemActions from '../redux/work-item-actions';
-import { WorkItem } from './workItem';
+import { WorkItem } from '../shared/workItem';
 import { WorkItemSelectorService } from '../redux/work-item-selector.service';
 
 @Injectable({
@@ -22,6 +22,8 @@ export class WorkGeneratorService {
   private allWorkItem: WorkItem[] = [];
 
 
+  private actualFilter = '';
+
   get countLowWorkItem(): number {
     this.workItemSelector.getLevelCount$('low').subscribe(_ => {this.low = _; } );
     return this.low;
@@ -39,19 +41,26 @@ export class WorkGeneratorService {
       this.items$ = workItemSelector.getAllItems$();
   }
 
-  getWorkItem(id: number): WorkItem {
-    this.workItemSelector.getItem$(id).subscribe(_ => {this.item = _; } );
-    return this.item;
-
-  }
-
   private generateWorkItems(count: number): void {
     for (let i = 0; i < count; i++) {
-      this.store.dispatch(WorkItemActions.createWorkItemsAction(this.generateWorkItem(i)));
+      this.store.dispatch(WorkItemActions.createWorkItemsAction(this.generateWorkItem()));
     }
   }
 
-  private generateWorkItem(itemId: number): WorkItem {
+  getItem(id: number): WorkItem {
+    let item: WorkItem;
+    this.workItemSelector.getItem$(id).subscribe(_ => {item = _; });
+    return item;
+  }
+
+  filter(text: string): void {
+    this.actualFilter = text;
+    if (this.actualFilter === '') {
+      this.items$ = this.workItemSelector.getAllItems$();
+    }
+  }
+
+  private generateWorkItem(): WorkItem {
     return {
       id : this.workItemCounter++,
       workName : this.stringGenerator(),
@@ -59,6 +68,17 @@ export class WorkGeneratorService {
       level: this.generatePoint < 0.5 ? 'low' : 'high',
       createDate: this.randomDate(new Date(2020, 0, 1), new Date())
     } as WorkItem;
+  }
+
+  createWorkItem(form: {name: string, date: string}): void {
+    const newItem = {
+      id: this.workItemCounter++,
+      workName : form.name,
+      point : this.numberGenerator(),
+      level: this.generatePoint < 0.5 ? 'low' : 'high',
+      createDate: !form.date ? new Date() : form.date
+    }as WorkItem;
+    this.store.dispatch(WorkItemActions.createWorkItemsAction(newItem));
   }
 
   private stringGenerator(): string {
@@ -70,68 +90,14 @@ export class WorkGeneratorService {
     }
     return randomCodes;
   }
-  createWorkItem(form: {name: string, date: string}): void {
-    const newItem = {
-      id: this.workItemCounter++,
-      workName : form.name,
-      point : this.numberGenerator(),
-      level: this.generatePoint < 0.5 ? 'low' : 'high',
-      createDate: !form.date ? new Date() : form.date
-    }as WorkItem;
-    this.store.dispatch(WorkItemActions.createWorkItemsAction(newItem));
-  }
-  numberGenerator(): number {
+
+  private numberGenerator(): number {
     this.generatePoint = (Math.round(Math.random() * 10) / 10);
     return this.generatePoint;
   }
 
-  private setFooter(): void {
-    this.low = this.items.filter(x => x.level === 'low').length;
-    this.high = this.items.filter(x => x.level === 'high').length;
-  }
-
   private randomDate(start: Date, end: Date): Date {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  }
-
-
-  addItem(form: {name: string, date: string}): void{
-    const newItem = {
-      id: this.workItemCounter++,
-      workName : form.name,
-      point : this.numberGenerator(),
-      level: this.generatePoint < 0.5 ? 'low' : 'high',
-      createDate: !form.date ? new Date() : form.date
-    }as WorkItem;
-    this.allWorkItem = [newItem, ...this.allWorkItem];
-    this.items = this.allWorkItem;
-    this.itemsSubject.next(this.items);
-  }
-
-  getItem(id: number): WorkItem {
-    let item: WorkItem;
-    this.workItemSelector.getItem$(id).subscribe(_ => {item = _; });
-    return item;
-  }
-
-  filter(text: string): void {
-    this.items = this.allWorkItem.filter(x => x.workName.includes(text));
-    this.itemsSubject.next(this.items);
-    this.setFooter();
-  }
-
-  generateWorkList(count: number): void {
-    for (let i = 0; i < count; i++) {
-      this.allWorkItem.push({
-        id : i,
-        workName : this.stringGenerator(),
-        point : this.numberGenerator(),
-        level: this.generatePoint < 0.5 ? 'low' : 'high',
-        createDate: this.randomDate(new Date(2020, 0, 1), new Date())
-      } as WorkItem);
-    }
-    this.items = this.allWorkItem;
-    this.setFooter();
   }
 
 }

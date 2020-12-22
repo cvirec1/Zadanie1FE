@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { WorkItem } from 'src/app/core-modul/workItem';
+import { WorkItem } from 'src/app/shared/workItem';
 
 
 @Component({

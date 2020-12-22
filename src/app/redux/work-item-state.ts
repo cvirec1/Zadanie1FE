@@ -1,4 +1,4 @@
-import { WorkItem } from '../core-modul/workItem';
+import { WorkItem } from '../shared/workItem';
 
 
 export interface WorkItemsState {

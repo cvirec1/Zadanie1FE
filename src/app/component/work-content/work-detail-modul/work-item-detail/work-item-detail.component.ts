@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap} from 'rxjs/operators';
 
 import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
-import { WorkItem } from 'src/app/core-modul/workItem';
+import { WorkItem } from 'src/app/shared/workItem';
 
 
 @Component({

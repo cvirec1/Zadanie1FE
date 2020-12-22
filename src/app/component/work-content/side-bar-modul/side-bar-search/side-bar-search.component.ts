@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-bar-search',
@@ -9,13 +10,22 @@ import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service'
 })
 export class SideBarSearchComponent implements OnInit {
 
-  constructor( private workService: WorkGeneratorService ) { }
+  @Output() filterItems: EventEmitter<string> = new EventEmitter();
+
+  priorityFilter = new FormControl();
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.priorityFilter.valueChanges
+    .pipe(
+        debounceTime(50),
+        distinctUntilChanged()
+    )
+    .subscribe(value => {
+        this.filterItems.emit(value);
+    });
   }
 
-  filter(text: string): void {
-    this.workService.filter(text);
-  }
 }
 

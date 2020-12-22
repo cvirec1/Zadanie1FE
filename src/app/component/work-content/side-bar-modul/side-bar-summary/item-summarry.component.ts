@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { WorkItemLevel } from 'src/app/shared/workItemLevelCount';
 
 @Component({
   selector: 'app-item-summarry',
@@ -7,8 +8,10 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemSummarryComponent implements OnInit {
-  @Input() low: number;
-  @Input() high: number;
+  // @Input() low: number;
+  // @Input() high: number;
+
+  @Input() summaryItems: WorkItemLevel[];
 
   constructor() { }
 
