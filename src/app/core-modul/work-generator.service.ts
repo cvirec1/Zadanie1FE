@@ -37,7 +37,7 @@ export class WorkGeneratorService {
   constructor(
     private store: Store< {payload: WorkItemsState} >,
     private workItemSelector: WorkItemSelectorService) {
-      this.generateWorkItems(5000);
+      this.generateWorkItems(500);
       this.items$ = workItemSelector.getAllItems$();
   }
 
