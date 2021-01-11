@@ -12,14 +12,10 @@ import { WorkItemSelectorService } from '../redux/work-item-selector.service';
 export class WorkGeneratorService {
 
   items$: Observable<WorkItem[]>;
-  private item: WorkItem;
   private workItemCounter = 1;
-  private itemsSubject: BehaviorSubject<WorkItem[]>;
   private generatePoint: number;
   private low: number;
   private high: number;
-  private items: WorkItem[];
-  private allWorkItem: WorkItem[] = [];
 
 
   private actualFilter = '';
