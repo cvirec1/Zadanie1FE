@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ReduxModule } from './redux/redux.module';
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core-modul/core.module';
+import { CoreModule } from './core/core.module';
 import { ComponentModule } from './component/component.module';
 import { WorkItemModule } from './component/work-content/work-item.module';
 @NgModule({

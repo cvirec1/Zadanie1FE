@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
+import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 
 
 @Component({

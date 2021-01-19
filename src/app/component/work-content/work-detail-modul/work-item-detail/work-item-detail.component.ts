@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { ActivatedRoute } from '@angular/router';
 import { switchMap} from 'rxjs/operators';
 
-import { WorkGeneratorService } from 'src/app/core-modul/work-generator.service';
+import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 import { WorkItem } from 'src/app/shared/workItem';
 
 
