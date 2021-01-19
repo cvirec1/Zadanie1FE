@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: 'detail/:id', component: WorkItemDetailComponent },
       { path: 'addWorkItem', component: AddWorkItemComponent }
     ] }, */
-  { path: 'items', loadChildren: () => import('./component/work-content/work-item.module').then(m => m.WorkItemModule)}
+  { path: 'items', loadChildren: () => import('./items/work-item.module').then(m => m.WorkItemModule)}
 
 ];
 
