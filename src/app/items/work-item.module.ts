@@ -4,8 +4,8 @@ import { SideBarPanelComponent } from './sidebar/side-bar-panel/side-bar-panel.c
 import { SideBarSearchComponent } from './sidebar/side-bar-search/side-bar-search.component';
 import { ItemSummarryComponent } from './sidebar/side-bar-summary/item-summarry.component';
 import { WorkListComponent } from './sidebar/side-bar-work-list/work-list.component';
-import { AddWorkItemComponent } from './detail/add-work-item/add-work-item.component';
-import { WorkItemDetailComponent } from './detail/work-item-detail/work-item-detail.component';
+import { AddWorkItemComponent } from './add/add-work-item.component';
+import { WorkItemDetailComponent } from './detail/work-item-detail.component';
 import { WorkContentComponent } from './work-content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WorkItemsRoutingModule } from './work-item-routing.module';

@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 
 import { SideBarPanelComponent } from './side-bar-panel.component';
 
@@ -8,7 +10,17 @@ describe('SideBarPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SideBarPanelComponent ]
+      declarations: [ SideBarPanelComponent ],
+      providers: [
+        {
+          provide: WorkGeneratorService,
+          usevalue: {}
+        },
+        {
+          provide: Store,
+          usevalue: {}
+        }
+      ]
     })
     .compileComponents();
   });
@@ -19,7 +31,7 @@ describe('SideBarPanelComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });
