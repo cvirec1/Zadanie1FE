@@ -10,7 +10,6 @@ import { WorkContentComponent } from './work-content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WorkItemsRoutingModule } from './work-item-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ValidatorComponent } from 'src/app/validator/validator.component';
 
 const COMPONENTS = [
   SideBarPanelComponent,
@@ -19,8 +18,7 @@ const COMPONENTS = [
   WorkListComponent,
   AddWorkItemComponent,
   WorkItemDetailComponent,
-  WorkContentComponent,
-  ValidatorComponent
+  WorkContentComponent
 ];
 
 @NgModule({
