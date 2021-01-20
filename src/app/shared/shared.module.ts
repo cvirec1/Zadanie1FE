@@ -4,8 +4,9 @@ import { ItemDatePipePipe } from './pipes/item-date-pipe.pipe';
 import { ItemLevelPipePipe } from './pipes/item-level-pipe.pipe';
 import { ItemLevelCountPipe } from './pipes/item-level-count.pipe';
 import { ValidatorComponent } from './validator/validator.component';
+import { SearchInputComponent } from './search-input/search-input.component';
 
-const COMPONENTS = [ItemDatePipePipe, ItemLevelPipePipe, ItemLevelCountPipe, ValidatorComponent];
+const COMPONENTS = [ItemDatePipePipe, ItemLevelPipePipe, ItemLevelCountPipe, ValidatorComponent, SearchInputComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
