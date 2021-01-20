@@ -9,8 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ReduxModule } from './redux/redux.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { ComponentModule } from './home/component.module';
 import { WorkItemModule } from './items/work-item.module';
+import { HomeModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,7 +23,7 @@ import { WorkItemModule } from './items/work-item.module';
     ReduxModule,
     SharedModule,
     CoreModule,
-    ComponentModule,
+    HomeModule,
     WorkItemModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25

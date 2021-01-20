@@ -21,4 +21,4 @@ const COMPONENTS = [HomeComponent, NavBarComponent, WorkItemComponent, SearchInp
   ],
   exports: [...COMPONENTS]
 })
-export class ComponentModule { }
+export class HomeModule { }
