@@ -12,9 +12,6 @@ import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 export class AddWorkItemComponent implements OnInit {
 
   form: FormGroup;
-  store: any;
-  items: any;
-  generatePoint: number;
 
   constructor(
     private fb: FormBuilder,

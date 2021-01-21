@@ -8,8 +8,6 @@ import { WorkItemLevel } from 'src/app/shared/workItemLevelCount';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemSummarryComponent implements OnInit {
-  // @Input() low: number;
-  // @Input() high: number;
 
   @Input() summaryItems: WorkItemLevel[];
 

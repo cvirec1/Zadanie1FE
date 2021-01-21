@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { workItemLevelCount } from 'src/app/shared/workItem.mock';
 
 import { ItemSummarryComponent } from './item-summarry.component';
 
-describe('ItemSummarryComponent', () => {
+fdescribe('ItemSummarryComponent', () => {
   let component: ItemSummarryComponent;
   let fixture: ComponentFixture<ItemSummarryComponent>;
 
@@ -16,6 +17,8 @@ describe('ItemSummarryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ItemSummarryComponent);
     component = fixture.componentInstance;
+
+    component.summaryItems = workItemLevelCount;
     fixture.detectChanges();
   });
 

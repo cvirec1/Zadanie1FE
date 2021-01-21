@@ -43,10 +43,8 @@ export class WorkGeneratorService {
     }
   }
 
-  getItem(id: number): WorkItem {
-    let item: WorkItem;
-    this.workItemSelector.getItem$(id).subscribe(_ => {item = _; });
-    return item;
+  getItem(id: number): Observable<WorkItem> {
+    return this.workItemSelector.getItem$(id);
   }
 
   filter(text: string): void {
