@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store } from '@ngrx/store';
 import { WorkGeneratorService } from 'src/app/core/work-generator.service';
-
+import { provideMockStore } from '@ngrx/store/testing';
 import { SideBarPanelComponent } from './side-bar-panel.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { workItem } from 'src/app/shared/workItem.mock';
 
 describe('SideBarPanelComponent', () => {
   let component: SideBarPanelComponent;
@@ -10,16 +11,16 @@ describe('SideBarPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        SharedModule
+      ],
       declarations: [ SideBarPanelComponent ],
       providers: [
         {
           provide: WorkGeneratorService,
           usevalue: {}
         },
-        {
-          provide: Store,
-          usevalue: {}
-        }
+        provideMockStore({})
       ]
     })
     .compileComponents();
@@ -28,10 +29,11 @@ describe('SideBarPanelComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SideBarPanelComponent);
     component = fixture.componentInstance;
+    component.items = workItem;
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

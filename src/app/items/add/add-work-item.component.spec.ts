@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 
 import { AddWorkItemComponent } from './add-work-item.component';
 
@@ -8,7 +10,17 @@ describe('AddWorkItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddWorkItemComponent ]
+      declarations: [ AddWorkItemComponent ],
+      providers: [
+        {
+          provide: WorkGeneratorService,
+          useValue: {}
+        },
+        {
+          provide: FormBuilder,
+          usevalue: {}
+        }
+      ]
     })
     .compileComponents();
   });
