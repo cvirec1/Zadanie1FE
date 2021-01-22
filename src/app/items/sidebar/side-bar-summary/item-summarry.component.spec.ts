@@ -3,7 +3,7 @@ import { workItemLevelCount } from 'src/app/shared/workItem.mock';
 
 import { ItemSummarryComponent } from './item-summarry.component';
 
-fdescribe('ItemSummarryComponent', () => {
+describe('ItemSummarryComponent', () => {
   let component: ItemSummarryComponent;
   let fixture: ComponentFixture<ItemSummarryComponent>;
 

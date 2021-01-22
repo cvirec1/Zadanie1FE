@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl } from '@angular/forms';
 
 import { SideBarSearchComponent } from './side-bar-search.component';
 
@@ -8,7 +9,8 @@ describe('SideBarSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SideBarSearchComponent ]
+      declarations: [ SideBarSearchComponent ],
+      providers: [FormControl]
     })
     .compileComponents();
   });
