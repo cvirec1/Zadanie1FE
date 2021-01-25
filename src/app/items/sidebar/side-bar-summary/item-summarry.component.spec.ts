@@ -25,4 +25,9 @@ describe('ItemSummarryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have every items count 1', () => {
+    expect(component.summaryItems.every(w => w.count === 1)).toBeTruthy();
+  });
+
 });

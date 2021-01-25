@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { workItem } from 'src/app/shared/workItem.mock';
 
 import { WorkListComponent } from './work-list.component';
 
@@ -8,6 +10,9 @@ describe('WorkListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        SharedModule
+      ],
       declarations: [ WorkListComponent ]
     })
     .compileComponents();
@@ -16,6 +21,8 @@ describe('WorkListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WorkListComponent);
     component = fixture.componentInstance;
+
+    component.itemList = workItem;
     fixture.detectChanges();
   });
 

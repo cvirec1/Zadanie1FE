@@ -44,4 +44,8 @@ describe('WorkItemDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be testWork1', () => {
+    expect(component.item.workName).toBe('testWork1');
+  });
 });
