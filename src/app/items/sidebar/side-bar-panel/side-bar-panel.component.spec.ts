@@ -4,17 +4,29 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { SideBarPanelComponent } from './side-bar-panel.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { workItem } from 'src/app/shared/workItem.mock';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { WorkItemsRoutingModule } from '../../work-item-routing.module';
+import { ItemSummarryComponent } from '../side-bar-summary/item-summarry.component';
+import { WorkListComponent } from '../side-bar-work-list/work-list.component';
+import { SideBarSearchComponent } from '../side-bar-search/side-bar-search.component';
 
-describe('SideBarPanelComponent', () => {
+fdescribe('SideBarPanelComponent', () => {
   let component: SideBarPanelComponent;
   let fixture: ComponentFixture<SideBarPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        AppRoutingModule,
+        WorkItemsRoutingModule,
         SharedModule
       ],
-      declarations: [ SideBarPanelComponent ],
+      declarations: [
+        SideBarPanelComponent,
+        SideBarSearchComponent,
+        ItemSummarryComponent,
+        WorkListComponent
+       ],
       providers: [
         {
           provide: WorkGeneratorService,
