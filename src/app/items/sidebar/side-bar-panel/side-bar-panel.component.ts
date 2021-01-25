@@ -21,7 +21,7 @@ export class SideBarPanelComponent implements OnInit {
     private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.workService.items$.subscribe(_ => {
+    this.workService.getAllItems().subscribe(_ => {
       this.allItems = _;
       this.onFilter(this.actualText);
       this.cdr.detectChanges();

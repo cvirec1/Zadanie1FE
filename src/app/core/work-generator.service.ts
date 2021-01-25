@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { WorkItemsState } from '../redux/work-item-state';
+
 import * as WorkItemActions from '../redux/work-item-actions';
 import { WorkItem } from '../shared/workItem';
 import { WorkItemSelectorService } from '../redux/work-item-selector.service';
@@ -34,13 +35,16 @@ export class WorkGeneratorService {
     private store: Store< {payload: WorkItemsState} >,
     private workItemSelector: WorkItemSelectorService) {
       this.generateWorkItems(500);
-      this.items$ = workItemSelector.getAllItems$();
   }
 
   private generateWorkItems(count: number): void {
     for (let i = 0; i < count; i++) {
       this.store.dispatch(WorkItemActions.createWorkItemsAction(this.generateWorkItem()));
     }
+  }
+
+  getAllItems(): Observable<WorkItem[]> {
+    return this.workItemSelector.getAllItems$();
   }
 
   getItem(id: number): Observable<WorkItem> {

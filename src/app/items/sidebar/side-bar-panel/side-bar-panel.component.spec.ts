@@ -9,17 +9,23 @@ import { WorkItemsRoutingModule } from '../../work-item-routing.module';
 import { ItemSummarryComponent } from '../side-bar-summary/item-summarry.component';
 import { WorkListComponent } from '../side-bar-work-list/work-list.component';
 import { SideBarSearchComponent } from '../side-bar-search/side-bar-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { of } from 'rxjs';
 
 fdescribe('SideBarPanelComponent', () => {
   let component: SideBarPanelComponent;
   let fixture: ComponentFixture<SideBarPanelComponent>;
+  const workGeneratorServiceSpy = jasmine.createSpyObj('WorkGeneratorService', ['getAllItems']);
+  const getAllItemsSpy = workGeneratorServiceSpy.getAllItems.and.returnValue(of(workItem));
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         AppRoutingModule,
         WorkItemsRoutingModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule,
+        FormsModule
       ],
       declarations: [
         SideBarPanelComponent,
@@ -30,7 +36,7 @@ fdescribe('SideBarPanelComponent', () => {
       providers: [
         {
           provide: WorkGeneratorService,
-          usevalue: {}
+          usevalue: workGeneratorServiceSpy
         },
         provideMockStore({})
       ]
@@ -41,7 +47,6 @@ fdescribe('SideBarPanelComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SideBarPanelComponent);
     component = fixture.componentInstance;
-    component.items = workItem;
     fixture.detectChanges();
   });
 
