@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { workItem } from 'src/app/shared/workItem.mock';
 
@@ -11,7 +12,8 @@ describe('WorkListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule
+        SharedModule,
+        RouterTestingModule
       ],
       declarations: [ WorkListComponent ]
     })

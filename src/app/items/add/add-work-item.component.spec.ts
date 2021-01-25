@@ -5,6 +5,7 @@ import { WorkGeneratorService } from 'src/app/core/work-generator.service';
 import { AddWorkItemComponent } from './add-work-item.component';
 
 describe('AddWorkItemComponent', () => {
+  const workGeneratorServiceSpy = jasmine.createSpyObj('WorkGeneratorService', ['getItem']);
   let component: AddWorkItemComponent;
   let fixture: ComponentFixture<AddWorkItemComponent>;
 
@@ -17,7 +18,7 @@ describe('AddWorkItemComponent', () => {
       providers: [
         {
           provide: WorkGeneratorService,
-          useValue: {}
+          useValue: workGeneratorServiceSpy
         },
         {
           provide: FormBuilder,
